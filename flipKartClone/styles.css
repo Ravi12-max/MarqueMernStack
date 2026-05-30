@@ -145,3 +145,41 @@ main {
   flex-grow: 1;
   background-color: beige;
 }
+#home-decor{
+  max-width: 100%;
+  height: auto;
+  background-color: orangered;
+  margin: 20px;
+  border-radius: 20px;
+  padding: 10px;
+}
+#home-decor-top{
+  display: flex;
+  justify-content: space-between;
+  color:white ;
+}
+.right-swipe-icons{
+  color: black;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  border-radius: 1rem;
+}
+#home-decors-cards-container{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  background-color: white;
+  margin-top: 2px ;
+}
+.home-decor-cards{
+  display: flex;
+  height: 200px;
+  width:200px;
+  margin:1rem;
+  background-color: gainsboro;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
