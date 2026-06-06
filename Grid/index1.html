@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: 200px 1fr 1fr 1fr;
+        grid-template-rows: 56px 1fr 1fr 52px;
+        gap: 5px;
+        width: 1000px;
+        margin-left:50px ;
+        margin-top: 50px;
+      }
+      .header {
+        grid-column: 1 / -1;
+        background-color: orange;
+        border-radius: 5px;
+      }
+      .sidebar {
+        grid-row: 2 / 4;
+        background-color: rgb(188, 162, 143);
+        width: auto;
+         border-radius: 5px;
+      }
+      .content-1 {
+        grid-column: 2 / -1;
+        background-color: rgb(226, 70, 43);
+        height: 200px;
+        width: 30;
+         border-radius: 5px;
+      }
+      .content-2{
+        background-color: rgb(48, 25, 58);
+         border-radius: 5px;
+      }
+      .content-3{
+        background-color:  rgb(157, 135, 167);
+         border-radius: 5px;
+      }
+      .content-4{
+        background-color:  rgb(171, 43, 226);
+         border-radius: 5px;
+      }
+      .footer {
+        grid-column: 1 / -1;
+        background-color: orange;
+         border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div class="header">
+        </div>
+        <div class="sidebar"></div>
+        <div class="content-1"></div>
+        <div class="content-2"></div>
+        <div class="content-3"></div>
+        <div class="content-4"></div>
+        <div class="footer"></div>
+    </div>
+  </body>
+</html>

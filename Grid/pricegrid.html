@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: rgb(219, 236, 236);
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+      }
+      #grid-container {
+        display: grid;
+        grid-template-rows: 200px 200px;
+        background-color: white;
+        margin-left: 100px;
+        width: 650px;
+        height: 650px;
+        box-shadow: 3px 3px 15px 0px rgb(68, 113, 99);
+        border-radius: 100p;
+        
+      }
+      .top{
+        background-color: rgb(250, 248, 245);
+            grid-row:1 ;
+            grid-column:1/span 2 ;
+        }
+      .left {
+        background-color: rgb(39, 67, 58);
+        grid-column: 1;
+        grid-row: 2/ span 2;
+      }
+      .right {
+        background-color:rgb(68, 113, 99);
+        grid-column: 2;
+        grid-row: 2 / span 2;
+      }
+      .heading{
+        margin-left:20px ;
+        margin-top: 20px;
+        color: rgb(39, 67, 58);;
+      }
+      .h2{
+        margin-left:20px ;
+        margin-top: 10px;
+        color: rgb(157, 198, 190);
+      }
+      .paragraph{
+        margin-left:20px ;
+        margin-top: 10px;
+        color: rgb(39, 67, 58);
+        font-weight: bolder;
+        font-family:cursive;
+      }
+      .h2left{
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        width: auto;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="grid-container">
+      <div class="top">
+        <h1 class="heading">Join our community</h1>
+        <h2 class="h2">30-day, hassle-free money back guarantee</h2>
+        <p class="paragraph">Gain access to our full library of tutorials along with expert code reviews. Perfect for any developers who are serious about honing their skills.</p>
+      </div>
+      <div class="left">
+        <h2 class="h2left">
+          Monthly Subscription
+        </h2>
+        <p class="p"><b>$29   </b>   per month</p>
+      </div>
+      <div class="right"></div>
+    </div>
+  </body>
+</html>

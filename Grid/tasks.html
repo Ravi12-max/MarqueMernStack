@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feature Grid</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: auto auto auto;
+    gap: 14px;
+    width: 100%;
+    max-width: 620px;
+  }
+
+  .card {
+    border-radius: 24px;
+    padding: 22px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card h3 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+
+  .card p {
+    font-size: 12.5px;
+    line-height: 1.5;
+    font-weight: 600;
+    opacity: 0.75;
+  }
+
+
+  .card-customization {
+    background: #c9c3f5;
+    grid-row: 1/-2;
+    color: #2a1f7a;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  
+  .card-scheduling {
+    background: #f9a5b5;
+    color: #5a1a28;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  
+  .card-wallet {
+    background: #2e2e3a;
+    color: #fff;
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+ 
+  .card-inbox {
+    background: #f7e44e;
+    color: #3a3000;
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .card-gifts {
+    background: #f5a05a;
+    color: #3d1a00;
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+ 
+  .card-reminders {
+    background: #ff6b6b;
+    color: #3a0000;
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  
+
+  .mock-preview {
+    background: white;
+    border-radius: 14px;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+
+  .card-img {
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(135deg, #a8d8f0 0%, #f9e4b7 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .bday-label {
+    background: white;
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #333;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  }
+
+  .toolbar {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  .toolbar-btn {
+    background: #f0eeff;
+    border-radius: 8px;
+    padding: 6px 8px;
+    font-size: 11px;
+    color: #5a4fb3;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  
+  .schedule-box {
+    background: white;
+    border-radius: 14px;
+    padding: 10px 12px;
+    margin-top: 10px;
+    font-size: 11px;
+    color: #333;
+  }
+
+  .schedule-label {
+    font-size: 10px;
+    color: #aaa;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  .schedule-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0;
+    border-bottom: 0.5px solid #eee;
+    font-weight: 600;
+  }
+
+  .schedule-row.active { color: #e8457a; }
+  .schedule-row.muted { color: #bbb; }
+
+  .schedule-btn {
+    margin-top: 8px;
+    background: #e8457a;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+ 
+  .wallet-card {
+    background: #1a1a1a;
+    border-radius: 14px;
+    padding: 12px 14px;
+    margin-top: 12px;
+  }
+
+  .starbucks-row {
+    background: #1e6f44;
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sbux-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #00704A;
+    border: 2px solid #4caf7d;
+    flex-shrink: 0;
+  }
+
+  .sbux-name {
+    flex: 1;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .sbux-amount {
+    font-size: 16px;
+    font-weight: 800;
+    color: white;
+  }
+
+  .sbux-dots {
+    font-size: 18px;
+    color: rgba(255,255,255,0.5);
+    cursor: pointer;
+  }
+
+ 
+  .inbox-list {
+    background: white;
+    border-radius: 14px;
+    padding: 8px 12px;
+    margin-top: 10px;
+  }
+
+  .inbox-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 0;
+    border-bottom: 0.5px solid #f0f0f0;
+  }
+
+  .inbox-row:last-child { border: none; }
+
+  .avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .inbox-info { flex: 1; }
+  .inbox-name { font-size: 11px; font-weight: 700; color: #222; }
+  .inbox-sub { font-size: 10px; color: #999; font-weight: 600; }
+
+  .inbox-thumb {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+  }
+
+  
+  .gifts-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .gift-tag {
+    border-radius: 10px;
+    padding: 7px 12px;
+    font-size: 11px;
+    font-weight: 800;
+    color: white;
+  }
+
+ 
+  .phone-mock {
+    background: white;
+    border-radius: 14px;
+    padding: 10px 12px;
+    margin-top: 10px;
+  }
+
+  .phone-time {
+    font-size: 10px;
+    color: #bbb;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .notif-bubble {
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 8px 10px;
+  }
+
+  .notif-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: #222;
+  }
+
+  .notif-body {
+    font-size: 10px;
+    color: #666;
+    margin-top: 2px;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<div class="grid">
+
+  
+  <div class="card card-customization">
+    <h3>Customization</h3>
+    <div class="card-img">
+      <span class="bday-label">🎂 Happy Birthday</span>
+    </div>
+    <div class="toolbar">
+      <div class="toolbar-btn">📋 Template</div>
+      <div class="toolbar-btn">T Text</div>
+      <div class="toolbar-btn">⭐ Stickers</div>
+      <div class="toolbar-btn">📷 Photo</div>
+    </div>
+    <p style="margin-top:10px;">Use a pre-designed template or personalize with video, stickers, fonts, and more</p>
+  </div>
+
+  
+  <div class="card card-scheduling">
+    <h3>Scheduling</h3>
+    <p>Schedule all your cards and gifts now and we'll send them later</p>
+    <div class="schedule-box">
+      <div class="schedule-label">When should we deliver this card?</div>
+      <div class="schedule-row active">
+        <span>September</span><span>20</span><span>9:00 AM</span>
+      </div>
+      <div class="schedule-row muted">
+        <span>October</span><span>21</span><span>10:00 AM</span>
+      </div>
+      <div class="schedule-btn">Set Date</div>
+    </div>
+  </div>
+
+ 
+  <div class="card card-wallet">
+    <h3>Wallet</h3>
+    <p style="opacity:0.5;">Access all your gifts and save up your Givingl Cash</p>
+    <div class="wallet-card">
+      <div class="starbucks-row">
+        <div class="sbux-dot"></div>
+        <div class="sbux-name">Starbucks Card</div>
+        <div class="sbux-amount">$32.00</div>
+        <div class="sbux-dots">⋮</div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="card card-inbox">
+    <h3>Inbox</h3>
+    <p>Track your gifts, group chats, and sent cards</p>
+    <div class="inbox-list">
+      <div class="inbox-row">
+        <div class="avatar" style="background:#b5d4f4;color:#0C447C;">BJ</div>
+        <div class="inbox-info">
+          <div class="inbox-name">Ben, Jemoll, Ali...</div>
+          <div class="inbox-sub">You got a gift!</div>
+        </div>
+        <div class="inbox-thumb" style="background:#ffe0b2;"></div>
+      </div>
+      <div class="inbox-row">
+        <div class="avatar" style="background:#c0dd97;color:#3B6D11;">KP</div>
+        <div class="inbox-info">
+          <div class="inbox-name">Kyle Patterson</div>
+          <div class="inbox-sub">Happy Birthday 🎉</div>
+        </div>
+        <div class="inbox-thumb" style="background:#ffe0e0;"></div>
+      </div>
+      <div class="inbox-row">
+        <div class="avatar" style="background:#f4c0d1;color:#72243E;">SM</div>
+        <div class="inbox-info">
+          <div class="inbox-name">Shantel Martina</div>
+          <div class="inbox-sub">Just sent a card</div>
+        </div>
+        <div class="inbox-thumb" style="background:#e8f0ff;"></div>
+      </div>
+    </div>
+  </div>
+
+ 
+  <div class="card card-gifts">
+    <h3>Send Gifts</h3>
+    <p>Send as a group with friends or individually</p>
+    <div class="gifts-grid">
+      <div class="gift-tag" style="background:#cc0000;">Target</div>
+      <div class="gift-tag" style="background:#FF9900;color:#111;">amazon</div>
+      <div class="gift-tag" style="background:#111;">Nike ✓</div>
+      <div class="gift-tag" style="background:#6b2fa0;">Bath &amp; Body</div>
+      <div class="gift-tag" style="background:#007dc6;">Starbucks</div>
+    </div>
+  </div>
+
+  
+  <div class="card card-reminders">
+    <h3>Reminders</h3>
+    <p>Never miss a birthday again</p>
+    <div class="phone-mock">
+      <div class="phone-time">9:41</div>
+      <div class="notif-bubble">
+        <div class="notif-title">🎂 Birthday Reminder</div>
+        <div class="notif-body">It's Alex's birthday today! Tap to send a card or gift.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

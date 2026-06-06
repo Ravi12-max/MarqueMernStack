@@ -125,6 +125,11 @@ nav {
   height: 80%;
   background-color: aquamarine;
 }
+#account{
+  padding-top: 5px;
+  margin-left: 2px;
+  color:black;
+}
 #login-btn{
   border:none;
   background-color: transparent;

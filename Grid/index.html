@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border-style: hidden;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      html,
+      body {
+        background-color: whitesmoke;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+        width: 100vh;
+        padding: 100px;
+      }
+      #grid-container {
+        background-color: rgb(214, 230, 227);
+        width: 400px;
+        height: 500px;
+        display: grid;
+        grid-template-columns: repeat(2, 100px);
+        grid-template-rows: repeat(4, 100px);
+        gap: 20px;
+        justify-content: center;
+        padding-top:50px ;
+        border-radius: 50px;
+        box-shadow: 5px 5px rgb(209, 225, 225);
+      }
+      .item {
+        background-color: rgb(189, 189, 194);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:black;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px rgb(178, 138, 178);
+       
+      }
+      .item:hover{
+        background-color: rgb(207, 207, 219);
+        transition-delay:inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="grid-container">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+    </div>
+  </body>
+</html>
